@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+
 import "./globals.css";
 import { ThemeProvider } from "./provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Adam's Portfolio",
-  description: "Welcome to my portfolio! As a recent graduate from CDI College’s Developer Analyst program, I've used Node.js and Framer to showcase my web development and UI design projects. Dive into my work, see my journey, and explore my passion for creating sleek, interactive designs. Let’s connect and explore how we can collaborate!",
+  title: "Adrian's Portfolio",
+  description: "Modern & Minimal JS Mastery Portfolio",
 };
 
 export default function RootLayout({
@@ -16,7 +17,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/jsm-logo.png" sizes="any" />
+      </head>
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
@@ -25,7 +29,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
-          </ThemeProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
